@@ -1,5 +1,8 @@
 package com.travello.github.reposlist
 
-class RepositoriesListPresenter {
+import com.travello.github.service.RepositoriesService
+import javax.inject.Inject
+
+class RepositoriesListPresenter @Inject constructor(repositoriesService: RepositoriesService) {
 
 }

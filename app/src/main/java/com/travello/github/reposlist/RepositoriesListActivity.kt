@@ -5,8 +5,16 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.travello.github.R
 import kotlinx.android.synthetic.main.activity_repos_list.*
+import javax.inject.Inject
 
 class RepositoriesListActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var repositoryAdapter: RepositoryAdapter
+
+    @Inject
+    lateinit var presenter: RepositoriesListPresenter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repos_list)
