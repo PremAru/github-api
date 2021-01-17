@@ -1,6 +1,12 @@
 # github-api
 An app that will display Github most starred repos
 
+##Repositories List Screen:
+
+![alt text](https://github.com/PremAru/github-api/blob/master/images/image1.png)
+
+![alt text](https://github.com/PremAru/github-api/blob/master/images/image2.png)
+
 ## Development 
 
 Install Android Studio
