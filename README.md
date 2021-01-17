@@ -1,13 +1,14 @@
 # github-api
 An app that will display Github most starred repos
 
-##Repositories List Screen:
+# Repositories List Screen:
 
 ![alt text](https://github.com/PremAru/github-api/blob/master/images/image1.png)
 
 ![alt text](https://github.com/PremAru/github-api/blob/master/images/image2.png)
 
-## Development 
+
+## Getting Started
 
 Install Android Studio
 
@@ -20,6 +21,9 @@ Install Android SDK & buildtools
 
 Open workspace
 
+	Clone this repository and import into Android Studio
+	git clone git@github.com:PremAru/github-api.git
+	
 	Android Studio -> File -> Open
 
 Run Unit Tests
