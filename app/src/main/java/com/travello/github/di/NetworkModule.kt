@@ -3,6 +3,8 @@ package com.travello.github.di
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.squareup.picasso.OkHttp3Downloader
+import com.squareup.picasso.Picasso
 import com.travello.github.interceptor.ForceCacheInterceptor
 import com.travello.github.service.RepositoriesService
 import com.travello.github.utils.Constants.BASEURL
@@ -67,6 +69,20 @@ class NetworkModule {
     @Provides
     fun provideRepositoryApiService(retrofit: Retrofit) : RepositoriesService {
         return retrofit.create(RepositoriesService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideOkHttp3Downloader(okHttpClient: OkHttpClient) : OkHttp3Downloader{
+        return OkHttp3Downloader(okHttpClient)
+    }
+
+    @Singleton
+    @Provides
+    fun providePicasso(context: Context, okHttp3Downloader: OkHttp3Downloader) : Picasso{
+        return Picasso.Builder(context)
+                .downloader(okHttp3Downloader)
+                .build()
     }
 
 

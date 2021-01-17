@@ -53,4 +53,5 @@ ext {
     hamcrestVersion='2.2'
     kotlinSerializationVersion='1.0-M1-1.4.0-rc'
     timberVersion = '4.7.1'
+    picassoVersion = "2.71828"
 }

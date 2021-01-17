@@ -7,4 +7,6 @@ data class Repository (
     @SerializedName("description") val description: String?,
     @SerializedName("stargazers_count") val starCount: String,
     @SerializedName("owner") val owner: Owner
-)
+) {
+    val starCountDisplayName: String get() = "Star: $starCount"
+}
