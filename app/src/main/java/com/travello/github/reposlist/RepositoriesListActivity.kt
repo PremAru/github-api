@@ -61,4 +61,12 @@ class RepositoriesListActivity : AppCompatActivity(), RepositoriesListView {
         alertBuilder.setPositiveButton(getString(R.string.ok_button), null)
         alertBuilder.show()
     }
+
+    override fun displayLoadingIndicator() {
+        progressBar.show()
+    }
+
+    override fun hideLoadingIndicator() {
+        progressBar.hide()
+     }
 }

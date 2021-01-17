@@ -29,6 +29,7 @@ class RepositoriesListPresenter @Inject constructor(repositoriesService: Reposit
 
     fun getRepositories() {
         isRequestInProgress = true
+        getView().displayLoadingIndicator()
         repositoriesService.getRepositories(
             repositoryCreatedDaysAgo(DAYSAGO),
             SORTPARAM,
@@ -40,6 +41,7 @@ class RepositoriesListPresenter @Inject constructor(repositoriesService: Reposit
                 override fun onComplete() {
                     Timber.i("Repositories list complete block executed")
                     isRequestInProgress = false
+                    getView().hideLoadingIndicator()
                 }
 
                 override fun onNext(repositories: Repositories) {
@@ -53,6 +55,7 @@ class RepositoriesListPresenter @Inject constructor(repositoriesService: Reposit
 
                 override fun onError(e: Throwable?) {
                     Timber.e("Repositories list error response received $e")
+                    getView().hideLoadingIndicator()
                     getView().displayError(Constants.DEFAULT_ERROR_MESSAGE)
                 }
             })

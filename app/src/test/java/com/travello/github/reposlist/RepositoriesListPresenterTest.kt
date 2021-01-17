@@ -78,6 +78,7 @@ class RepositoriesListPresenterTest {
             any())).thenReturn(Observable.just(repositories))
 
         presenter.getRepositories()
+        then(verify(presenter.getView()).displayLoadingIndicator())
 
         then(verify(presenter.getView()).updateAdapter())
 
@@ -86,6 +87,9 @@ class RepositoriesListPresenterTest {
 
         then(assertThat(actualRepositoryList, `is`(repositories.repositoryList)))
         then(assertThat(actualPageNumber, `is`(2)))
+
+        then(verify(presenter.getView()).hideLoadingIndicator())
+
     }
 
 
@@ -98,11 +102,14 @@ class RepositoriesListPresenterTest {
                 any())).thenReturn(Observable.error(IOException(errorMessage)))
 
         presenter.getRepositories()
+        then(verify(presenter.getView()).displayLoadingIndicator())
 
         then(verify(presenter.getView()).displayError(DEFAULT_ERROR_MESSAGE))
 
         val actualPageNumber = presenter.nextPageNumber
         then(assertThat(actualPageNumber, `is`(1)))
+        then(verify(presenter.getView()).hideLoadingIndicator())
+
     }
 
 
